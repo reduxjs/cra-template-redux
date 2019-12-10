@@ -48,6 +48,7 @@
   border: 2px solid transparent;
   color: rgb(112, 76, 182);
   padding-bottom: 4px;
+  cursor: pointer;
 }
 
 .App-counter-button:focus {
