@@ -1,6 +1,6 @@
 {
-  "name": "cra-template-redux-test",
-  "version": "1.3.0",
+  "name": "cra-template-redux",
+  "version": "1.0.0",
   "scripts": {
     "prettify": "prettier './template/src/**/*.js' --write",
     "lint": "eslint './template/src/**/*.js'",
@@ -9,9 +9,12 @@
   "keywords": [
     "react",
     "create-react-app",
-    "template"
+    "template",
+    "redux",
+    "reduxjs",
+    "react-redux"
   ],
-  "description": "The offical redux Create React App template.",
+  "description": "The official Redux+JS template for Create React App.",
   "main": "template.json",
   "repository": {
     "type": "git",
