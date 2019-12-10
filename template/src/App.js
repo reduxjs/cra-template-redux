@@ -12,6 +12,23 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <p className="App-counter">
+          <button
+            className="App-counter-button"
+            aria-label="Increment value"
+            onClick={() => dispatch(actions.increment())}
+          >
+            +
+          </button>
+          <span className="App-counter-value">{count}</span>
+          <button
+            className="App-counter-button"
+            aria-label="Decrement value"
+            onClick={() => dispatch(actions.decrement())}
+          >
+            -
+          </button>
+        </p>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -23,23 +40,6 @@ function App() {
         >
           Learn Redux
         </a>
-        <p className="App-counter">
-          <button
-            className="App-counter-button"
-            aria-label="Increment value"
-            onClick={() => dispatch(actions.increment())}
-          >
-            +
-          </button>
-          <div className="App-counter-value">{count}</div>
-          <button
-            className="App-counter-button"
-            aria-label="Decrement value"
-            onClick={() => dispatch(actions.decrement())}
-          >
-            -
-          </button>
-        </p>
       </header>
     </div>
   );
