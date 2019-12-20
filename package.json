@@ -2,7 +2,7 @@
   "name": "cra-template-redux",
   "version": "1.0.0",
   "scripts": {
-    "prettify": "prettier './template/src/**/*.js' --write",
+    "prettify": "prettier --trailing-comma es5 --single-quote --write './template/src/**/*.js'",
     "lint": "eslint './template/src/**/*.js'",
     "test": "jest"
   },
