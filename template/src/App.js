@@ -33,7 +33,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <span>
-          Learn
+          <span>Learn </span>
           <a
             className="App-link"
             href="https://redux.js.org/"
@@ -41,7 +41,8 @@ function App() {
             rel="noopener noreferrer"
           >
             Redux
-          </a>,
+          </a>
+          <span>, </span>
           <a
             className="App-link"
             href="https://redux-toolkit.js.org/"
@@ -50,7 +51,7 @@ function App() {
           >
             Redux Toolkit
           </a>,
-          and
+          <span> and </span>
           <a
             className="App-link"
             href="https://react-redux.js.org/"
