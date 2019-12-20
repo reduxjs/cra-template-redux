@@ -1,1 +1,1 @@
-export { slice as counterSlice } from "./counter";
+export { slice as counterSlice } from './counter';

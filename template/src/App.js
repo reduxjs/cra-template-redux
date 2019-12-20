@@ -1,8 +1,8 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { useSelector, useDispatch } from "react-redux";
-import { selectors, actions } from "./ducks/counter";
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectors, actions } from './ducks/counter';
 
 function App() {
   const count = useSelector(selectors.selectCount);
