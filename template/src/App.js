@@ -50,8 +50,8 @@ function App() {
             rel="noopener noreferrer"
           >
             Redux Toolkit
-          </a>,
-          <span> and </span>
+          </a>
+          ,<span> and </span>
           <a
             className="App-link"
             href="https://react-redux.js.org/"
