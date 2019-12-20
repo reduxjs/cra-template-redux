@@ -17,11 +17,9 @@ const slice = createSlice({
 
 const selectCount = state => state.counter.value;
 
-const selectors = {
+export const selectors = {
   selectCount,
 };
 
-const { actions } = slice;
-
-export { actions, selectors, slice };
+export const { actions, slice } = slice;
 export default slice.reducer;
