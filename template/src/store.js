@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import * as slices from './ducks';
+import * as slices from './features';
 
 export default configureStore({
   reducer: {
