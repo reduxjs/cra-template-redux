@@ -15,11 +15,7 @@ export const slice = createSlice({
   },
 });
 
-const selectCount = state => state.counter.value;
+export const selectCount = state => state.counter.value;
+export const { increment, decrement } = slice.actions;
 
-export const selectors = {
-  selectCount,
-};
-
-export const { actions } = slice;
 export default slice.reducer;

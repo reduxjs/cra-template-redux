@@ -26,38 +26,6 @@
   color: rgb(112, 76, 182);
 }
 
-.App-counter {
-  display: flex;
-  align-items: center;
-}
-
-.App-counter-value {
-  font-size: 48px;
-  width: 70px;
-}
-
-.App-counter-button {
-  appearance: none;
-  border: none;
-  background: none;
-  font-size: 32px;
-  padding-left: 12px;
-  padding-right: 12px;
-  outline: none;
-  border: 2px solid transparent;
-  color: rgb(112, 76, 182);
-  padding-bottom: 4px;
-  cursor: pointer;
-}
-
-.App-counter-button:focus {
-  border: 2px solid rgba(112, 76, 182, 0.4);
-}
-
-.App-counter-button:active {
-  background-color: rgba(112, 76, 182, 0.1);
-}
-
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);
