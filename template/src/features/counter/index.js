@@ -28,10 +28,10 @@ export function Counter() {
         </button>
       </div>
       <div className={styles.row}>
-        <input className={styles.textbox} value={incrementAmount} onChange={(e) => setIncrementAmount(Number(e.target.value))} />
+        <input className={styles.textbox} value={incrementAmount} onChange={(e) => setIncrementAmount(e.target.value)} />
         <button 
           className={styles.button}
-          onClick={() => dispatch(incrementByAmount({ amount: incrementAmount }))}
+          onClick={() => dispatch(incrementByAmount({ amount: Number(incrementAmount) || 0 }))}
         >
           Add Amount
         </button>

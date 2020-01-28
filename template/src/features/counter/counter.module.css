@@ -9,9 +9,11 @@
 }
 
 .value {
-  font-size: 64px;
-  width: 80px;
-  margin-top: -2px;
+  font-size: 78px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-top: 2px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .button {
