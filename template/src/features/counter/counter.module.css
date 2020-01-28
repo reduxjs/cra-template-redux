@@ -1,11 +1,17 @@
-.container {
+.row {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.row:first-child {
+  margin-bottom: 16px;
 }
 
 .value {
-  font-size: 48px;
-  width: 70px;
+  font-size: 64px;
+  width: 80px;
+  margin-top: -2px;
 }
 
 .button {
@@ -20,12 +26,23 @@
   color: rgb(112, 76, 182);
   padding-bottom: 4px;
   cursor: pointer;
+  background-color: rgba(112, 76, 182, 0.1);
+  border-radius: 2px;
+  transition: all 0.15s;
 }
 
-.button:focus {
+.textbox {
+  font-size: 32px;
+  padding: 2px;
+  width: 64px;
+  text-align: center;
+  margin-right: 8px;
+}
+
+.button:hover, .button:focus {
   border: 2px solid rgba(112, 76, 182, 0.4);
 }
 
 .button:active {
-  background-color: rgba(112, 76, 182, 0.1);
+  background-color: rgba(112, 76, 182, 0.2);
 }
