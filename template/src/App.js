@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter';
+import { Counter } from './features/counter/Counter';
 import './App.css';
 
 function App() {
@@ -14,6 +14,15 @@ function App() {
         </p>
         <span>
           <span>Learn </span>
+          <a
+            className="App-link"
+            href="https://reactjs.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            React
+          </a>
+          <span>, </span>
           <a
             className="App-link"
             href="https://redux.js.org/"
