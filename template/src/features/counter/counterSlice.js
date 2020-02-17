@@ -18,7 +18,7 @@ export const slice = createSlice({
     },
     incrementByAmount: (state, action) => {
       state.value += action.payload.amount;
-    }
+    },
   },
 });
 

@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { decrement, increment, incrementByAmount, selectCount } from './counterSlice';
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+  selectCount,
+} from './counterSlice';
 import styles from './Counter.module.css';
 
 export function Counter() {
@@ -28,15 +33,22 @@ export function Counter() {
         </button>
       </div>
       <div className={styles.row}>
-        <input className={styles.textbox} value={incrementAmount} onChange={(e) => setIncrementAmount(e.target.value)} />
-        <button 
+        <input
+          className={styles.textbox}
+          value={incrementAmount}
+          onChange={e => setIncrementAmount(e.target.value)}
+        />
+        <button
           className={styles.button}
-          onClick={() => dispatch(incrementByAmount({ amount: Number(incrementAmount) || 0 }))}
+          onClick={() =>
+            dispatch(
+              incrementByAmount({ amount: Number(incrementAmount) || 0 })
+            )
+          }
         >
           Add Amount
         </button>
       </div>
-    
     </div>
   );
 }
