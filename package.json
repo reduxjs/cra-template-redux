@@ -1,6 +1,6 @@
 {
   "name": "cra-template-redux",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "prettify": "prettier --trailing-comma es5 --single-quote --write './template/src/**/*.js'",
     "lint": "eslint './template/src/**/*.js'",
