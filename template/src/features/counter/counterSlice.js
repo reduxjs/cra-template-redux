@@ -25,4 +25,4 @@ export const slice = createSlice({
 export const selectCount = state => state.counter.value;
 export const { increment, decrement, incrementByAmount } = slice.actions;
 
-export default slice.reducer;
+export default slice;
