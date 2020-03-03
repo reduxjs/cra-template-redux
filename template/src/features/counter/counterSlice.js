@@ -23,6 +23,7 @@ export const slice = createSlice({
     },
     incrementByAmountAsyncRequest: state => {
       state.isLoading = true;
+      state.err = ''
     },
     incrementByAmountAsyncSuccess: (state, action) => {
       state.value += action.payload.amount;
