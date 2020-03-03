@@ -1,9 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const slice = createSlice({
-  name: 'counter',
+  name: "counter",
   initialState: {
     value: 0,
+    isLoading: false,
+    err: "",
   },
   reducers: {
     increment: state => {
@@ -19,10 +21,41 @@ export const slice = createSlice({
     incrementByAmount: (state, action) => {
       state.value += action.payload.amount;
     },
-  },
+    incrementByAmountAsyncRequest: state => {
+      state.isLoading = true;
+    },
+    incrementByAmountAsyncSuccess: (state, action) => {
+      state.value += action.payload.amount;
+      state.isLoading = false;
+    },
+    incrementByAmountAsyncFailure: (state, action) => {
+      state.isLoading = false;
+      state.err = action.payload;
+    }
+  }
 });
 
 export const selectCount = state => state.counter.value;
-export const { increment, decrement, incrementByAmount } = slice.actions;
+export const isLoading = state => state.counter.isLoading;
+
+export const {
+  increment,
+  decrement,
+  incrementByAmount,
+  incrementByAmountAsyncRequest,
+  incrementByAmountAsyncSuccess,
+  incrementByAmountAsyncFailure
+} = slice.actions;
 
 export default slice.reducer;
+
+export const incrementByAmountAsync = payload => async dispatch => {
+  dispatch(incrementByAmountAsyncRequest());
+  try {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+  } catch (err) {
+    dispatch(incrementByAmountAsyncFailure(err.toString()));
+    return;
+  }
+  dispatch(incrementByAmountAsyncSuccess(payload));
+};
