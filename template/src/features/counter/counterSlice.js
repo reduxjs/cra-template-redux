@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const slice = createSlice({
-  name: "counter",
+  name: 'counter',
   initialState: {
     value: 0,
     isLoading: false,
-    err: "",
+    err: '',
   },
   reducers: {
     increment: state => {
