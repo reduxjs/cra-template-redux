@@ -4,8 +4,8 @@ import {
   decrement,
   increment,
   incrementByAmount,
-  selectCount,
   incrementAsync,
+  selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
 
