@@ -29,7 +29,7 @@ export const selectCount = state => state.counter.value;
 
 export const { increment, decrement, incrementByAmount } = slice.actions;
 
-export const incrementAsync = () => (dispatch) => {
+export const incrementAsync = () => dispatch => {
   setTimeout(() => {
     dispatch(increment());
   }, 1000);
