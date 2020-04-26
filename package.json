@@ -12,47 +12,46 @@
     "template",
     "redux",
     "reduxjs",
-    "react-redux"
+    "react-redux",
+    "styled-components",
+    "dark-theme"
   ],
-  "description": "The official Redux+JS template for Create React App.",
+  "description": "Redux + styled-components + eslint template for Create React App",
   "main": "template.json",
   "repository": {
     "type": "git",
-    "url": "https://github.com/reduxjs/cra-template-redux.git"
+    "url": "https://github.com/JorgeJOcampo/cra-template-styled-components.git"
   },
   "license": "MIT",
   "engines": {
     "node": ">=8"
-  },
-  "bugs": {
-    "url": "https://github.com/reduxjs/cra-template-redux/issues"
   },
   "files": [
     "template",
     "template.json"
   ],
   "devDependencies": {
-    "@babel/preset-env": "^7.7.6",
-    "@babel/preset-react": "^7.7.4",
-    "@reduxjs/toolkit": "^1.1.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "babel-eslint": "^10.0.3",
-    "babel-jest": "^24.9.0",
-    "eslint": "^6.7.2",
-    "eslint-config-react-app": "^5.1.0",
-    "eslint-plugin-flowtype": "^4.5.2",
-    "eslint-plugin-import": "^2.18.2",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@reduxjs/toolkit": "^1.3.5",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.3",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.4.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-react-hooks": "^2.3.0",
-    "jest": "^24.9.0",
-    "prettier": "^1.19.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-redux": "^7.1.3",
-    "react-test-renderer": "^16.12.0",
-    "redux": "^4.0.4"
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
+    "jest": "^25.4.0",
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-test-renderer": "^16.13.1",
+    "redux": "^4.0.5"
   }
 }
