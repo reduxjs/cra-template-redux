@@ -2,24 +2,30 @@
  * @jest-environment jest-environment-jsdom-sixteen
  */
 import React from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import store from '../../app/store';
 import { Counter } from './Counter';
 
 test('Counter', async () => {
-  const { getByTestId } = render(
+  render(
     <Provider store={store}>
       <Counter />
     </Provider>
   );
 
-  const value = getByTestId('counter-value');
-  const decrement = getByTestId('counter-decrement');
-  const increment = getByTestId('counter-increment');
-  const incrementAmount = getByTestId('counter-increment-amount');
-  const incrementByAmount = getByTestId('counter-increment-by-amount');
-  const incrementAsync = getByTestId('counter-increment-async');
+  const value = screen.getByTitle('Count is');
+  const decrement = screen.getByRole('button', { name: 'Decrement value' });
+  const increment = screen.getByRole('button', { name: 'Increment value' });
+  const incrementAmount = screen.getByRole('textbox', {
+    name: 'Set increment amount',
+  });
+  const incrementByAmount = screen.getByRole('button', {
+    name: 'Increment value by amount',
+  });
+  const incrementAsync = screen.getByRole('button', {
+    name: 'Increment value by amount asynchronously',
+  });
 
   // Initial render
   expect(value).toContainHTML('0');
