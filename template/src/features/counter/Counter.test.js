@@ -14,7 +14,7 @@ test('Counter', async () => {
     </Provider>
   );
 
-  const value = screen.getByTitle('Count is');
+  const value = screen.getByRole('status', { name: 'Counter value' });
   const decrement = screen.getByRole('button', { name: 'Decrement value' });
   const increment = screen.getByRole('button', { name: 'Increment value' });
   const incrementAmount = screen.getByRole('textbox', {

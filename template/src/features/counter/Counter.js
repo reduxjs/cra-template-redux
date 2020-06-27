@@ -24,9 +24,9 @@ export function Counter() {
         >
           +
         </button>
-        <span className={styles.value} title="Count is">
+        <output aria-label="Counter value" aria-live="polite">
           {count}
-        </span>
+        </output>
         <button
           className={styles.button}
           aria-label="Decrement value"
