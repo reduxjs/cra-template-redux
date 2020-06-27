@@ -5,6 +5,11 @@ import reducer, {
   incrementAsync,
   selectCount,
 } from './counterSlice';
+import { fakeAsyncCall } from './fakeApi';
+
+// To use the mock module, you must explicitly call jest.mock here
+// https://jestjs.io/docs/en/manual-mocks
+jest.mock('./fakeApi');
 
 describe('counterSlice', () => {
   describe('reducers', () => {
@@ -22,31 +27,44 @@ describe('counterSlice', () => {
       const state = reducer({ value: 0 }, incrementByAmount(4));
       expect(state).toEqual({ value: 4 });
     });
+
+    it('incrementAsync.pending', () => {
+      const action = { type: incrementAsync.pending };
+      const state = reducer({ value: 0 }, action);
+      expect(state).toEqual({ value: 0 });
+    });
+
+    it('incrementAsync.resolved', () => {
+      const action = { type: incrementAsync.fulfilled, payload: 4 };
+      const state = reducer({ value: 2 }, action);
+      expect(state).toEqual({ value: 6 });
+    });
   });
 
   describe('thunks', () => {
     it('incrementAsync', async () => {
       const dispatch = jest.fn();
       const getState = () => ({ counter: { value: 0 } });
-      const thunk = incrementAsync(4);
+      const amount = 4;
+      const thunk = incrementAsync(amount);
       await thunk(dispatch, getState, null);
 
-      expect(dispatch).toHaveBeenCalledTimes(3);
+      expect(fakeAsyncCall).toHaveBeenCalledWith(amount);
+      expect(dispatch).toHaveBeenCalledTimes(2);
       expect(dispatch).nthCalledWith(1, {
         meta: {
-          arg: 4,
+          arg: amount,
           requestId: expect.any(String),
         },
         payload: undefined,
         type: 'counter/incrementAsync/pending',
       });
-      expect(dispatch).nthCalledWith(2, incrementByAmount(4));
-      expect(dispatch).nthCalledWith(3, {
+      expect(dispatch).nthCalledWith(2, {
         meta: {
-          arg: 4,
+          arg: amount,
           requestId: expect.any(String),
         },
-        payload: undefined,
+        payload: amount,
         type: 'counter/incrementAsync/fulfilled',
       });
     });

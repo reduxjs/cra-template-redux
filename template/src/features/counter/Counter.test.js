@@ -7,6 +7,10 @@ import { Provider } from 'react-redux';
 import store from '../../app/store';
 import { Counter } from './Counter';
 
+// To use the mock module, you must explicitly call jest.mock here
+// https://jestjs.io/docs/en/manual-mocks
+jest.mock('./fakeApi');
+
 test('Counter', async () => {
   render(
     <Provider store={store}>
