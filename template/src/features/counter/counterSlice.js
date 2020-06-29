@@ -3,17 +3,15 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fakeAsyncCall } from './fakeApi';
 
 // The function produced by `createAsyncThunk` below is called a thunk.
-// It allows us to perform async logic. It can be dispatched like a regular action:
+// It allows us to perform async logic  and automatically dispatches actions
+// matching Promise life cycle states: pending, fulfilled or rejected.
+// It can be dispatched like a regular action:
 // `dispatch(incrementAsync(10))`.
 // The `thunkApi` argument has `dispatch`, `getState` and other functions available.
 // See https://redux-toolkit.js.org/api/createAsyncThunk
-// Async code can then be executed and other actions can be dispatched.
 export const incrementAsync = createAsyncThunk(
   'counter/incrementAsync',
-  async (amount, thunkApi) => {
-    const value = await fakeAsyncCall(amount);
-    return value;
-  }
+  async (amount, thunkApi) => await fakeAsyncCall(amount)
 );
 
 export const counterSlice = createSlice({

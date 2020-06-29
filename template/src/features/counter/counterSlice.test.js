@@ -13,28 +13,28 @@ jest.mock('./fakeApi');
 
 describe('counterSlice', () => {
   describe('reducers', () => {
-    it('decrement', () => {
+    it('subtracts one from the current value', () => {
       const state = reducer({ value: 4 }, decrement());
       expect(state).toEqual({ value: 3 });
     });
 
-    it('increment', () => {
+    it('adds one to the current value', () => {
       const state = reducer({ value: 0 }, increment());
       expect(state).toEqual({ value: 1 });
     });
 
-    it('incrementByAmount', () => {
+    it('adds the payload to the current value', () => {
       const state = reducer({ value: 0 }, incrementByAmount(4));
       expect(state).toEqual({ value: 4 });
     });
 
-    it('incrementAsync.pending', () => {
+    it('does not modify the state when incrementAsync is pending', () => {
       const action = { type: incrementAsync.pending };
       const state = reducer({ value: 0 }, action);
       expect(state).toEqual({ value: 0 });
     });
 
-    it('incrementAsync.resolved', () => {
+    it('adds the payload to the value when incrementAsync is fulfilled', () => {
       const action = { type: incrementAsync.fulfilled, payload: 4 };
       const state = reducer({ value: 2 }, action);
       expect(state).toEqual({ value: 6 });
@@ -49,29 +49,31 @@ describe('counterSlice', () => {
       const thunk = incrementAsync(amount);
       await thunk(dispatch, getState, null);
 
+      // Check the api has been called with the correct arguments
       expect(fakeAsyncCall).toHaveBeenCalledWith(amount);
+
+      // dispatch should be called twice - once for pending, once for resolved.
       expect(dispatch).toHaveBeenCalledTimes(2);
-      expect(dispatch).nthCalledWith(1, {
-        meta: {
-          arg: amount,
-          requestId: expect.any(String),
+
+      // The first dispatch should have the correct type
+      expect(dispatch.mock.calls[0]).toMatchObject([
+        {
+          type: incrementAsync.pending().type,
         },
-        payload: undefined,
-        type: 'counter/incrementAsync/pending',
-      });
-      expect(dispatch).nthCalledWith(2, {
-        meta: {
-          arg: amount,
-          requestId: expect.any(String),
+      ]);
+
+      // The second dispatch should have the correct payload and type
+      expect(dispatch.mock.calls[1]).toMatchObject([
+        {
+          payload: amount,
+          type: incrementAsync.fulfilled().type,
         },
-        payload: amount,
-        type: 'counter/incrementAsync/fulfilled',
-      });
+      ]);
     });
   });
 
   describe('selectors', () => {
-    it('selectCount', () => {
+    it('returns the current value of the counter', () => {
       const count = selectCount({ counter: { value: 7 } });
       expect(count).toEqual(7);
     });

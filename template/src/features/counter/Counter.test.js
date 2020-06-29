@@ -2,7 +2,8 @@
  * @jest-environment jest-environment-jsdom-sixteen
  */
 import React from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
 import store from '../../app/store';
 import { Counter } from './Counter';
@@ -11,7 +12,7 @@ import { Counter } from './Counter';
 // https://jestjs.io/docs/en/manual-mocks
 jest.mock('./fakeApi');
 
-test('Counter', async () => {
+test('can render the Counter and have the store be updated by actions', async () => {
   render(
     <Provider store={store}>
       <Counter />
@@ -32,21 +33,21 @@ test('Counter', async () => {
   });
 
   // Initial render
-  expect(value).toContainHTML('0');
+  expect(value).toHaveTextContent('0');
   expect(incrementAmount).toHaveValue('2');
 
   // Updates
-  fireEvent.click(increment);
-  expect(value).toContainHTML('1');
+  userEvent.click(increment);
+  expect(value).toHaveTextContent('1');
 
-  fireEvent.change(incrementAmount, { target: { value: '4' } });
+  userEvent.type(incrementAmount, '{backspace}4');
   expect(incrementAmount).toHaveValue('4');
-  fireEvent.click(incrementByAmount);
-  expect(value).toContainHTML('5');
+  userEvent.click(incrementByAmount);
+  expect(value).toHaveTextContent('5');
 
-  fireEvent.click(decrement);
-  expect(value).toContainHTML('4');
+  userEvent.click(decrement);
+  expect(value).toHaveTextContent('4');
 
-  fireEvent.click(incrementAsync);
-  await waitFor(() => expect(value).toContainHTML('8'));
+  userEvent.click(incrementAsync);
+  await waitFor(() => expect(value).toHaveTextContent('8'));
 });
