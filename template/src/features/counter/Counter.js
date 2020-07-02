@@ -54,9 +54,9 @@ export function Counter() {
         <button
           className={styles.asyncButton}
           onClick={() => dispatch(incrementAsync(Number(incrementAmount) || 0))}
-          aria-label="Increment value by amount asynchronously"
+          aria-label="Increment value by random amount asynchronously"
         >
-          Add Async
+          Add Random Amount Async
         </button>
       </div>
     </div>

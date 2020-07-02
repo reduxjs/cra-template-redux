@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { fakeAsyncCall } from './fakeApi';
+import { getRandomNumber } from './api';
 
 // The function produced by `createAsyncThunk` below is called a thunk.
 // It allows us to perform async logic  and automatically dispatches actions
@@ -11,7 +11,7 @@ import { fakeAsyncCall } from './fakeApi';
 // See https://redux-toolkit.js.org/api/createAsyncThunk
 export const incrementAsync = createAsyncThunk(
   'counter/incrementAsync',
-  async (amount, thunkApi) => await fakeAsyncCall(amount)
+  async (amount, thunkApi) => await getRandomNumber(amount)
 );
 
 export const counterSlice = createSlice({

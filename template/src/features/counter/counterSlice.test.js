@@ -5,11 +5,11 @@ import reducer, {
   incrementAsync,
   selectCount,
 } from './counterSlice';
-import { fakeAsyncCall } from './fakeApi';
+import { getRandomNumber } from './api';
 
 // To use the mock module, you must explicitly call jest.mock here
 // https://jestjs.io/docs/en/manual-mocks
-jest.mock('./fakeApi');
+jest.mock('./api');
 
 describe('counterSlice', () => {
   describe('reducers', () => {
@@ -50,7 +50,7 @@ describe('counterSlice', () => {
       await thunk(dispatch, getState, null);
 
       // Check the api has been called with the correct arguments
-      expect(fakeAsyncCall).toHaveBeenCalledWith(amount);
+      expect(getRandomNumber).toHaveBeenCalledWith(amount);
 
       // dispatch should be called twice - once for pending, once for resolved.
       expect(dispatch).toHaveBeenCalledTimes(2);

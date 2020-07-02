@@ -10,7 +10,7 @@ import { Counter } from './Counter';
 
 // To use the mock module, you must explicitly call jest.mock here
 // https://jestjs.io/docs/en/manual-mocks
-jest.mock('./fakeApi');
+jest.mock('./api');
 
 test('can render the Counter and have the store be updated by actions', async () => {
   render(
@@ -29,7 +29,7 @@ test('can render the Counter and have the store be updated by actions', async ()
     name: 'Increment value by amount',
   });
   const incrementAsync = screen.getByRole('button', {
-    name: 'Increment value by amount asynchronously',
+    name: 'Increment value by random amount asynchronously',
   });
 
   // Initial render
