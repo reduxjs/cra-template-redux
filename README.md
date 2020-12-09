@@ -14,7 +14,7 @@ npx create-react-app my-app --template redux
 
 ## TypeScript
 
-Use [cra-template-redux-typescript](https://github.com/reduxjs/cra-template-redux-typescript), which is based off this template
+Use [cra-template-redux-typescript](https://github.com/reduxjs/cra-template-redux-typescript), which is based on this template
 
 ```sh
 npx create-react-app my-app --template redux-typescript
