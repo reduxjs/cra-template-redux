@@ -1,4 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+import { getRandomNumber } from './api';
+
+// The function produced by `createAsyncThunk` below is called a thunk.
+// It allows us to perform async logic  and automatically dispatches actions
+// matching Promise life cycle states: pending, fulfilled or rejected.
+// It can be dispatched like a regular action:
+// `dispatch(incrementAsync(10))`.
+// The `thunkApi` argument has `dispatch`, `getState` and other functions available.
+// See https://redux-toolkit.js.org/api/createAsyncThunk
+export const incrementAsync = createAsyncThunk(
+  'counter/incrementAsync',
+  async (amount, thunkApi) => await getRandomNumber(amount)
+);
 
 export const counterSlice = createSlice({
   name: 'counter',
@@ -20,19 +34,14 @@ export const counterSlice = createSlice({
       state.value += action.payload;
     },
   },
+  extraReducers: builder => {
+    builder.addCase(incrementAsync.fulfilled, (state, action) => {
+      state.value += action.payload;
+    });
+  },
 });
 
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
-
-// The function below is called a thunk and allows us to perform async logic. It
-// can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
-// will call the thunk with the `dispatch` function as the first argument. Async
-// code can then be executed and other actions can be dispatched
-export const incrementAsync = amount => dispatch => {
-  setTimeout(() => {
-    dispatch(incrementByAmount(amount));
-  }, 1000);
-};
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

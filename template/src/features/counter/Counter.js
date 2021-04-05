@@ -24,7 +24,9 @@ export function Counter() {
         >
           -
         </button>
-        <span className={styles.value}>{count}</span>
+        <output aria-label="Counter value" aria-live="polite">
+          {count}
+        </output>
         <button
           className={styles.button}
           aria-label="Increment value"
@@ -45,14 +47,16 @@ export function Counter() {
           onClick={() =>
             dispatch(incrementByAmount(Number(incrementAmount) || 0))
           }
+          aria-label="Increment value by amount"
         >
           Add Amount
         </button>
         <button
           className={styles.asyncButton}
           onClick={() => dispatch(incrementAsync(Number(incrementAmount) || 0))}
+          aria-label="Increment value by random amount asynchronously"
         >
-          Add Async
+          Add Random Amount Async
         </button>
       </div>
     </div>
