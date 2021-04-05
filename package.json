@@ -2,7 +2,7 @@
   "name": "cra-template-redux",
   "version": "1.0.2",
   "scripts": {
-    "format": "prettier --write './template/src/**/*.js'",
+    "format": "prettier --write ./template/src/**/*.js",
     "lint": "eslint './template/src/**/*.js'",
     "test": "jest"
   },
