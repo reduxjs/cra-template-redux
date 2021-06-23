@@ -1,10 +1,9 @@
 {
-  "name": "cra-template-redux",
-  "version": "1.0.3",
+  "name": "@space-uy/cra-template-spacedev",
+  "version": "1.0.0",
   "scripts": {
     "format": "prettier --write ./template/src/**/*.js",
-    "lint": "eslint './template/src/**/*.js'",
-    "test": "jest"
+    "lint": "eslint './template/src/**/*.js'"
   },
   "keywords": [
     "react",
@@ -14,18 +13,18 @@
     "reduxjs",
     "react-redux"
   ],
-  "description": "The official Redux+JS template for Create React App.",
+  "description": "The official template used by SpaceDev 🚀 for Create React App.",
   "main": "template.json",
   "repository": {
     "type": "git",
-    "url": "https://github.com/reduxjs/cra-template-redux.git"
+    "url": "https://github.com/SpaceUY/cra-template-spacedev.git"
   },
   "license": "MIT",
   "engines": {
     "node": ">=8"
   },
   "bugs": {
-    "url": "https://github.com/reduxjs/cra-template-redux/issues"
+    "url": "https://github.com/SpaceUY/cra-template-spacedev/issues"
   },
   "files": [
     "template",

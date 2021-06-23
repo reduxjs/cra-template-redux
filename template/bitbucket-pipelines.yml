@@ -1,0 +1,67 @@
+image: node:12.7.0-alpine
+
+definitions:
+  steps:
+    - step: &build
+        name: Build
+        caches:
+          - node
+        script:
+          - yarn install --frozen-lockfile
+          - yarn build
+        artifacts:
+          - build/**
+
+pipelines:
+  branches:
+    master:
+      - step: *build
+      - step:
+          name: Deploy to S3
+          deployment: production
+          script:
+            - pipe: atlassian/aws-s3-deploy:0.3.8
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                S3_BUCKET: $S3_BUCKET_MASTER
+                LOCAL_PATH: 'build'
+                ACL: 'public-read'
+            - pipe: atlassian/aws-cloudfront-invalidate:0.1.1
+              variables:
+                DISTRIBUTION_ID: $DISTRIBUTION_ID_MASTER
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+    
+    staging:
+      - step: *build
+      - step:
+          name: Deploy to S3
+          deployment: production
+          script:
+            - pipe: atlassian/aws-s3-deploy:0.3.8
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+                S3_BUCKET: $S3_BUCKET_STAGING
+                LOCAL_PATH: 'build'
+                ACL: 'public-read'
+            - pipe: atlassian/aws-cloudfront-invalidate:0.1.1
+              variables:
+                DISTRIBUTION_ID: $DISTRIBUTION_ID_STAGING
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+
+  pull-requests:
+    '**':
+      - step:
+          name: "Lint"
+          caches:
+            - node
+          script:
+            - yarn install --frozen-lockfile
+            - yarn lint
