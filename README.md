@@ -1,5 +1,7 @@
 # cra-template-spacedev
 
+[![Node.js Package](https://github.com/SpaceUY/cra-template-spacedev/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/SpaceUY/cra-template-spacedev/actions/workflows/npm-publish.yml)
+
 The official template used by SpaceDev for [Create React App](https://github.com/facebook/create-react-app)
 
 ## Usage
