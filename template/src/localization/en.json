@@ -12,7 +12,8 @@
       "clientError": "The information you sent us doesn't seem to be right",
       "timeoutError": "Your request is taking too long",
       "connectionError": "The server is down",
-      "serverError": "An unexpected error has occurred, please try again later"
+      "serverError": "Our server does not seem to be working properly, please try again later",
+      "unknownError": "An unexpected error has occurred, please try again later"
     }
   }
 }
