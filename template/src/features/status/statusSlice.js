@@ -33,19 +33,10 @@ export const { reset } = statusSlice.actions;
 
 const statusSelector = (state, action) => state.status[action];
 
-export const selectIsPending = createSelector(
-  statusSelector,
-  (status) => status === 'pending',
-);
-
-export const selectWasFulfilled = createSelector(
-  statusSelector,
-  (status) => status === 'fulfilled',
-);
-
-export const selectWasRejected = createSelector(
-  statusSelector,
-  (status) => status === 'rejected',
-);
+export const selectActionStatus = createSelector(statusSelector, (status) => ({
+  isPending: status === 'pending',
+  wasFulfilled: status === 'fulfilled',
+  wasRejected: status === 'rejected',
+}));
 
 export default statusSlice.reducer;
