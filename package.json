@@ -1,6 +1,6 @@
 {
   "name": "@space-uy/cra-template-spacedev",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "format": "prettier --write ./template/src/**/*.js",
     "lint": "eslint './template/src/**/*.js'"
