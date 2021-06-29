@@ -60,6 +60,21 @@ const useStyles = makeStyles((theme) => ({
 
 Read [this link](https://material-ui.com/styles/basics/) for details.
 
+### Making API requests
+
+Follow these steps:
+
+1. Update the `REACT_APP_API_URL` variable in the `.env` file
+2. Use the `makeApiCall` higher order function in your api files like the following snippet
+
+```js
+import makeApiCall from 'app/makeApiCall';
+
+// the following does a post request to your server to the
+// baseUrl + 'something' with the data variable as its body
+const fetchSomethingFromTheApi = makeApiCall((client, data) => client.post('something', data));
+```
+
 ### How do I upload files?
 
 The `useImageUpload` hook or the others you can find to upload other types of files in [our knowledge base](https://kb.spacedev.uy/books/file-upload-s3/page/web) work like so:
