@@ -1,10 +1,9 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import logo from './assets/spacedev.png';
-
-const Counter = React.lazy(() => import('./features/counter/Counter'));
+import Counter from './features/counter/Counter';
 
 const App = () => {
   const classes = useStyles();
@@ -14,9 +13,9 @@ const App = () => {
       <header className={classes.header}>
         <img src={logo} className={classes.logo} alt="logo" />
         <React.Suspense fallback={<CircularProgress />}>
-          <Switch>
-            <Route exact path="/" component={Counter} />
-          </Switch>
+          <Routes>
+            <Route exact path="/" element={<Counter />} />
+          </Routes>
         </React.Suspense>
         <p className={classes.hint}>
           Edit <code>src/App.js</code> and save to reload.
