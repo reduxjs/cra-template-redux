@@ -29,7 +29,7 @@ jobs:
         run: npm ci
 
       - name: Lint code
-        run: npm run lint
+        run: NODE_ENV=test && npm run lint
 
       - name: Run test suite
         run: npm test
