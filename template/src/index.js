@@ -7,7 +7,7 @@ import { store } from './app/store';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const container = document.getElementById('app');
+const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
