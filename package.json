@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "scripts": {
     "format": "prettier --write ./template/src/**/*.js",
-    "lint": "eslint './template/src/**/*.js'",
+    "lint": "eslint ./template/src/**/*.js",
     "test": "jest"
   },
   "keywords": [
@@ -39,7 +39,6 @@
     "@testing-library/react": "^13.0.1",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^27.5.1",
-    "babel-preset-react-app": "^10.0.1",
     "eslint": "^8.13.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-flowtype": "^8.0.3",
@@ -48,6 +47,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
+    "babel-preset-react-app": "^10.0.1",
     "jest": "^27.5.1",
     "prettier": "^2.6.2",
     "react": "^18.0.0",
