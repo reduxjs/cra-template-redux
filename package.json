@@ -1,6 +1,6 @@
 {
   "name": "cra-template-redux",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "scripts": {
     "format": "prettier --write ./template/src/**/*.js",
     "lint": "cross-env NODE_ENV=development eslint ./template/src/**/*.js",
