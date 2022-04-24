@@ -12,6 +12,7 @@
     "template",
     "redux",
     "reduxjs",
+    "redux-toolkit",
     "react-redux"
   ],
   "description": "The official Redux+JS template for Create React App.",
