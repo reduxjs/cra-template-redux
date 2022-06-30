@@ -27,7 +27,9 @@ export function Counter() {
         >
           -
         </button>
-        <span className={styles.value}>{count}</span>
+        <span data-testid="count" className={styles.value}>
+          {count}
+        </span>
         <button
           className={styles.button}
           aria-label="Increment value"
